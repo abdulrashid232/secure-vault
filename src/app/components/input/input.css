@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  margin-bottom: var(--spacing-default);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.input-label {
+  font-family: var(--font-family-code);
+  font-size: 12px;
+  color: var(--color-electric-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cyber-input {
+  background-color: rgba(18, 25, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px; 
+  padding: 12px 16px;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-code); 
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+ 
+}
+
+.cyber-input::placeholder {
+  color: var(--color-text-tertiary);
+  font-family: var(--font-family-body); 
+}
+
+.cyber-input:focus {
+  border-color: var(--color-electric-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  background-color: rgba(18, 25, 38, 0.8);
+}
