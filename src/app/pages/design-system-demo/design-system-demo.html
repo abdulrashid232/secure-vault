@@ -1,0 +1,206 @@
+<div class="min-h-screen bg-sv-charcoal text-white p-10 font-body selection:bg-sv-cyan selection:text-sv-charcoal">
+  
+  <!-- Header Section -->
+  <header class="mb-12 border-b border-sv-cyan/20 pb-4">
+    <h1 class="text-4xl font-display font-bold text-white tracking-widest uppercase mb-2">
+      Secure<span class="text-sv-cyan">Vault</span>
+    </h1>
+    <p class="text-sv-cyan/60 font-mono text-xs tracking-[0.2em]">Design System Protocol v1.0.4</p>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    
+    <!-- Typography & Colors -->
+    <section class="space-y-8">
+      <div>
+         <h2 class="text-sv-cyan font-mono text-sm tracking-widest mb-6 flex items-center gap-2">
+          <span class="w-8 h-[1px] bg-sv-cyan"></span> 01. Typography Scale
+        </h2>
+        
+        <div class="space-y-6">
+          <div>
+            <p class="text-xs text-slate-500 font-mono mb-1">H1 Display / Orbitron Bold / 48px</p>
+            <h1 class="text-5xl font-display font-bold text-white">System Override</h1>
+          </div>
+          
+          <div>
+            <p class="text-xs text-slate-500 font-mono mb-1">H2 Heading / Orbitron Medium / 32px</p>
+            <h2 class="text-3xl font-display font-medium text-white">Quantum Encryption Active</h2>
+          </div>
+          
+          <div>
+            <p class="text-xs text-slate-500 font-mono mb-1">Body Lead / Inter Regular / 18px</p>
+            <p class="text-lg text-slate-300 max-w-md">
+              SecureVault utilizes post-quantum cryptographic primitives to ensure data longevity and absolute privacy for enterprise assets.
+            </p>
+          </div>
+          
+           <div>
+            <p class="text-xs text-slate-500 font-mono mb-1">Technical / JetBrains Mono / 14px</p>
+            <div class="bg-sv-midnight p-4 border-l-2 border-sv-cyan font-mono text-sm text-sv-cyan/80">
+              > Initializing secure handshake...<br>
+              > RSA-4096 Key: A4-B2-C9-D1-F0-E4<br>
+              > Integrity Check: [PASSED]
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colors -->
+    <section>
+        <h2 class="text-sv-cyan font-mono text-sm tracking-widest mb-6 flex items-center gap-2">
+          <span class="w-8 h-[1px] bg-sv-cyan"></span> 02. Color Palette
+        </h2>
+        
+        <div class="grid gap-4">
+            <!-- Charcoal -->
+            <div class="p-4 rounded border border-white/5 bg-sv-charcoal flex items-center justify-between group">
+                <div>
+                    <p class="font-mono text-xs uppercase text-slate-400">Deep Charcoal</p>
+                    <p class="font-display text-xl">#0B0E14</p>
+                </div>
+                <div class="w-12 h-12 rounded-full border border-white/10 bg-sv-charcoal shadow-inner"></div>
+            </div>
+             <!-- Midnight -->
+            <div class="p-4 rounded border border-white/5 bg-sv-midnight flex items-center justify-between">
+                <div>
+                    <p class="font-mono text-xs uppercase text-slate-400">Midnight Blue</p>
+                    <p class="font-display text-xl">#121926</p>
+                </div>
+                <div class="w-12 h-12 rounded-full border border-white/10 bg-sv-midnight"></div>
+            </div>
+             <!-- Cyan -->
+            <div class="p-4 rounded border border-sv-cyan/20 bg-sv-cyan/5 flex items-center justify-between">
+                 <div>
+                    <p class="font-mono text-xs uppercase text-sv-cyan">Electric Cyan</p>
+                    <p class="font-display text-xl text-sv-cyan">#00F0FF</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-sv-cyan shadow-[0_0_15px_#00F0FF]"></div>
+            </div>
+             <!-- Gold -->
+            <div class="p-4 rounded border border-sv-gold/20 bg-sv-gold/5 flex items-center justify-between">
+                 <div>
+                    <p class="font-mono text-xs uppercase text-sv-gold">Muted Gold</p>
+                    <p class="font-display text-xl text-sv-gold">#C9A050</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-sv-gold shadow-[0_0_15px_#C9A050]"></div>
+            </div>
+             <!-- Red -->
+             <div class="p-4 rounded border border-sv-red/20 bg-sv-red/5 flex items-center justify-between">
+                 <div>
+                    <p class="font-mono text-xs uppercase text-sv-red">Alert Red</p>
+                    <p class="font-display text-xl text-sv-red">#FF4B4B</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-sv-red shadow-[0_0_15px_#FF4B4B]"></div>
+            </div>
+        </div>
+    </section>
+
+  </div>
+
+  <!-- Components -->
+  <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+    
+    <!-- Buttons -->
+    <section>
+       <h2 class="text-sv-cyan font-mono text-sm tracking-widest mb-6 flex items-center gap-2">
+          <span class="w-8 h-[1px] bg-sv-cyan"></span> 04. Component States
+        </h2>
+
+        <app-card class="block p-8 border-l border-sv-cyan/20">
+            <h3 class="font-display text-sm tracking-wider mb-6 border-l-2 border-sv-cyan pl-3">| BUTTON STATES</h3>
+            
+            <div class="space-y-8">
+                <div>
+                     <p class="text-xs font-mono text-slate-500 mb-2">ACTION / PRIMARY CYAN</p>
+                     <div class="flex flex-wrap gap-4">
+                         <app-button variant="primary">Default</app-button>
+                         <app-button variant="primary" class="brightness-125">Hover</app-button>
+                         <app-button variant="primary" class="scale-95">Active</app-button>
+                         <app-button variant="primary" [disabled]="true">Disabled</app-button>
+                     </div>
+                </div>
+
+                 <div>
+                     <p class="text-xs font-mono text-slate-500 mb-2">ACTION / SECONDARY GHOST</p>
+                     <div class="flex flex-wrap gap-4">
+                         <app-button variant="secondary">Default</app-button>
+                         <app-button variant="secondary" class="bg-slate-700/50 text-white">Hover</app-button>
+                         <app-button variant="secondary" class="scale-95">Active</app-button>
+                         <app-button variant="secondary" [disabled]="true">Disabled</app-button>
+                     </div>
+                </div>
+
+                 <div>
+                     <p class="text-xs font-mono text-slate-500 mb-2">ACTION / DESTRUCTIVE RED</p>
+                     <div class="flex flex-wrap gap-4">
+                         <app-button variant="destructive">Default</app-button>
+                         <app-button variant="destructive" class="brightness-125">Hover</app-button>
+                         <app-button variant="destructive" class="scale-95">Active</app-button>
+                         <app-button variant="destructive" [disabled]="true">Disabled</app-button>
+                     </div>
+                </div>
+            </div>
+        </app-card>
+    </section>
+
+    <!-- Inputs & Cards -->
+    <section class="mt-12 lg:mt-0">
+        <!-- Spacer to align with buttons section header if needed, or just let it flow -->
+        <h2 class="text-transparent font-mono text-sm tracking-widest mb-6 flex items-center gap-2 select-none">
+          <span class="w-8 h-[1px] bg-transparent"></span> .
+        </h2>
+
+         <app-card class="block p-8 border-l border-sv-cyan/20 h-full">
+            <h3 class="font-display text-sm tracking-wider mb-6 border-l-2 border-sv-cyan pl-3">| INPUT & CARD STYLES</h3>
+            
+            <div class="space-y-8">
+                <div>
+                    <p class="text-xs font-mono text-slate-500 mb-2">INPUT / DEFAULT</p>
+                    <app-input placeholder="Enter Access Key..." label="ACCESS KEY"></app-input>
+                </div>
+                 <div>
+                    <p class="text-xs font-mono text-slate-500 mb-2">INPUT / ACTIVE FOCUS</p>
+                     <app-input placeholder="ALPHA-PROTOCOL-9" label="PROTOCOL ID" class="group focus-within:text-sv-cyan"></app-input>
+                </div>
+
+                 <div class="mt-8 pt-8 border-t border-white/5">
+                    <p class="text-xs font-mono text-slate-500 mb-4">GLASSMORPHIC CONTAINER</p>
+                    
+                    <app-card class="block">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="font-display text-white">Encrypted Volume 01</h4>
+                                <div class="w-full bg-slate-800 h-1 mt-2 rounded-full overflow-hidden">
+                                    <div class="w-2/3 h-full bg-gradient-to-r from-sv-cyan to-transparent"></div>
+                                </div>
+                                <div class="flex justify-between mt-1">
+                                    <span class="text-[10px] font-mono text-slate-400">66% CAPACITY</span>
+                                    <span class="text-[10px] font-mono text-sv-cyan">SECURE</span>
+                                </div>
+                            </div>
+                            <div class="text-3xl text-slate-700">
+                                <!-- Placeholder for icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sv-cyan/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </app-card>
+                </div>
+            </div>
+         </app-card>
+    </section>
+
+  </div>
+  
+  <footer class="mt-20 pt-8 border-t border-white/5 flex justify-between text-[10px] font-mono text-slate-500 tracking-widest">
+      <p>@ 2026 SECUREVAULT PROTOCOL</p>
+      <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          ALL NODES OPERATIONAL
+      </div>
+  </footer>
+
+</div>

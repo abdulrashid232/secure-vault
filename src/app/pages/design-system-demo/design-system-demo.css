@@ -1,0 +1,101 @@
+.demo-page {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(201, 160, 80, 0.03) 0%, transparent 20%);
+}
+
+.demo-header {
+  margin-bottom: 60px;
+  border-left: 2px solid var(--color-electric-cyan);
+  padding-left: 20px;
+}
+
+.body-lead {
+  font-family: var(--font-family-body);
+  font-size: 18px; /* 18px/28 */
+  color: var(--color-text-secondary); /* "Body Lead / Inter Regular / 18px" - Image text color looks white-ish */
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.technical-info {
+  background-color: rgba(11, 14, 20, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  padding: 16px;
+  border-radius: 4px; /* Image looks sharp or slightly rounded */
+  font-family: var(--font-family-code);
+  color: var(--color-electric-cyan);
+  width: fit-content;
+}
+
+.tech-text {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.variant-group {
+  margin-bottom: 32px;
+}
+
+.variant-label {
+  font-family: var(--font-family-code);
+  font-size: 10px;
+  color: var(--color-text-tertiary); /* Greyed out label */
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.input-card-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.glass-container-demo {
+  margin-top: 32px;
+}
+
+/* Progress bar demo styles */
+.progress-bar-placeholder {
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 64%;
+  background-color: var(--color-electric-cyan);
+  box-shadow: 0 0 10px var(--color-electric-cyan);
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-family-code);
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}
