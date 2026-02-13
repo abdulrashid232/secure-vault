@@ -47,8 +47,22 @@ import { VaultService } from '../services/vault';
          </app-tree-node>
       </div>
 
-      <div class="p-2 border-t border-white/5 text-[10px] text-slate-600 font-mono text-center">
-        ENCRYPTED_VOL_MOUNTED
+      <!-- Storage & Actions Footer -->
+      <div class="p-4 border-t border-white/5 bg-sv-black/20">
+        <div class="mb-4">
+           <div class="flex justify-between items-end mb-1">
+              <span class="text-[10px] uppercase tracking-wider text-slate-400 font-mono">Vault Storage</span>
+              <span class="text-[10px] text-sv-cyan font-mono">72% Full</span>
+           </div>
+           <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-sv-cyan to-blue-500 w-[72%] rounded-full shadow-[0_0_10px_rgba(0,240,255,0.5)]"></div>
+           </div>
+        </div>
+
+        <button class="w-full py-2.5 bg-sv-cyan text-sv-charcoal font-bold font-display uppercase tracking-wide text-sm rounded shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 group">
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+            New Secure Vault
+        </button>
       </div>
     </div>
   `,
