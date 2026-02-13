@@ -11,7 +11,7 @@ import { AccessLogComponent } from '../access-log/access-log';
   template: `
     <div class="flex h-screen w-full bg-sv-charcoal text-white font-body overflow-hidden">
       <!-- Sidebar -->
-      <aside class="w-80 flex-shrink-0 z-20 shadow-[5px_0_20px_rgba(0,0,0,0.5)]">
+      <aside class="w-90 flex-shrink-0 z-20 shadow-[5px_0_20px_rgba(0,0,0,0.5)]">
         <app-file-explorer></app-file-explorer>
       </aside>
 
