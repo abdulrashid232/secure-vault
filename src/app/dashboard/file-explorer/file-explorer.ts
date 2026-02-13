@@ -9,13 +9,35 @@ import { VaultService } from '../services/vault';
   template: `
     <div class="h-full bg-sv-charcoal border-r border-white/5 flex flex-col">
       <!-- Header -->
-      <div class="p-4 border-b border-white/5 flex items-center justify-between">
-         <span class="font-display font-medium text-sm text-slate-300 tracking-wider">FILE EXPLORER</span>
-         <div class="flex gap-1">
-             <div class="w-2 h-2 rounded-full bg-slate-700"></div>
-             <div class="w-2 h-2 rounded-full bg-slate-700"></div>
-         </div>
-      </div>
+     <div class="flex items-center gap-4 bg-[#0a1212] mt-4 px-4 rounded-xl w-full">
+  <div class="flex items-center justify-center w-16 h-16 bg-[#132323] rounded-xl border border-white/5 shadow-inner">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      class="w-10 h-10 text-cyan-400"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+      <rect x="9" y="11" width="6" height="5" rx="1" />
+      <path d="M10 11V9a2 2 0 0 1 4 0v2" />
+    </svg>
+  </div>
+
+  <div class="flex flex-col">
+    <h1 class="text-3xl font-black tracking-tighter leading-none flex items-baseline">
+      <span class="text-white">SECURE</span>
+      <span class="text-cyan-400">VAULT</span>
+    </h1>
+    
+    <p class="mt-1 text-[10px] font-bold tracking-[0.3em] text-cyan-700 uppercase">
+      Quantum-Resistant Storage
+    </p>
+  </div>
+</div>
 
       <!-- Tree -->
       <div class="flex-1 overflow-y-auto p-2 scrollbar-hide">
