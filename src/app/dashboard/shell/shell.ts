@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileExplorerComponent } from '../file-explorer/file-explorer';
 import { FileDetailsComponent } from '../file-details/file-details';
 import { AccessLogComponent } from '../access-log/access-log';
+import { VaultService } from '../services/vault';
 
 @Component({
   selector: 'app-shell',
-  standalone: true,
   imports: [CommonModule, FileExplorerComponent, FileDetailsComponent, AccessLogComponent],
   template: `
     <div class="flex h-screen w-full bg-sv-charcoal text-white font-body overflow-hidden">
@@ -34,7 +34,12 @@ import { AccessLogComponent } from '../access-log/access-log';
 
            <div class="flex items-center gap-4 flex-1 lg:w-1/3 lg:flex-none">
               <div class="hidden md:block bg-gray-800 rounded px-2 py-1 text-xs text-slate-400 font-mono border border-gray-700">CMD+K</div>
-              <input type="text" placeholder="Search..." class="bg-transparent border-none text-sm text-white focus:outline-none w-full placeholder-slate-600 font-mono">
+              <input 
+                type="text" 
+                placeholder="Search..." 
+                class="bg-transparent border-none text-sm text-white focus:outline-none w-full placeholder-slate-600 font-mono"
+                (input)="vaultService.updateSearch($any($event.target).value)"
+              >
            </div>
            
            <div class="flex items-center gap-2 lg:gap-6">
@@ -71,6 +76,7 @@ import { AccessLogComponent } from '../access-log/access-log';
 })
 export class ShellComponent {
   isSidebarOpen = signal(false);
+  vaultService =  inject(VaultService);
 
   toggleSidebar() {
     this.isSidebarOpen.update(v => !v);
