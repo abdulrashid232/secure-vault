@@ -1,13 +1,20 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VaultService } from '../services/vault';
 import { Card } from '../../components/card/card';
 import { Button } from '../../components/button/button';
+import { ModalComponent } from '../../components/modal/modal';
+import { DecryptionSimulationComponent } from './decryption-simulation/decryption-simulation';
 
 @Component({
   selector: 'app-file-details',
-  imports: [CommonModule, Card, Button],
+  imports: [CommonModule, Card, Button, ModalComponent, DecryptionSimulationComponent],
   template: `
+    <app-modal *ngIf="isDecryptModalOpen()" (close)="isDecryptModalOpen.set(false)">
+        <span header>DECRYPTION_PROTOCOL_V4</span>
+        <app-decryption-simulation></app-decryption-simulation>
+    </app-modal>
+
     <div class="h-full p-4 md:p-8 flex flex-col justify-center items-center text-center" *ngIf="!vaultService.selectedItem()">
       <div class="w-24 h-24 rounded-full bg-sv-midnight border border-sv-cyan-dim flex items-center justify-center mb-6 animate-pulse">
         <svg class="w-10 h-10 text-sv-cyan/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
@@ -127,6 +134,7 @@ import { Button } from '../../components/button/button';
 })
 export class FileDetailsComponent {
   vaultService = inject(VaultService);
+  isDecryptModalOpen = signal(false);
   
   simulateDownload() {
       // Logic would go here (e.g. download service)
@@ -135,8 +143,6 @@ export class FileDetailsComponent {
   }
 
   simulateDecrypt() {
-      // Logic would go here
-       console.log('Decrypting access...');
-       alert('Requesting Decryption Keys from Admin-Alpha...');
+       this.isDecryptModalOpen.set(true);
   }
 }
