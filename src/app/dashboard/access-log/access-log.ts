@@ -12,7 +12,7 @@ interface LogEntry {
   selector: 'app-access-log',
   imports: [CommonModule],
   template: `
-    <div class="h-48 bg-sv-black border-t border-sv-cyan-dim font-mono text-xs p-4 overflow-y-auto flex flex-col gap-1 font-technical scrollbar-custom">
+    <div class="h-36 md:h-48 bg-sv-black border-t border-sv-cyan-dim font-mono text-xs p-3 md:p-4 overflow-y-auto flex flex-col gap-1 font-technical scrollbar-custom">
       <div class="flex items-center justify-between text-sv-cyan/50 mb-2 sticky top-0 bg-sv-black/90 backdrop-blur-sm pb-2 border-b border-white/5">
         <span class="uppercase tracking-widest flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
