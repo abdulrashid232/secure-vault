@@ -1,2 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
+
+@theme {
+  --color-sv-charcoal: #0B0E14;
+  --color-sv-midnight: #121926;
+  --color-sv-cyan: #00F0FF;
+  --color-sv-gold: #C9A050;
+  --color-sv-red: #FF4B4B;
+
+  --font-display: 'Orbitron', 'sans-serif';
+  --font-body: 'Inter', 'sans-serif';
+  --font-mono: 'JetBrains Mono', 'monospace';
+}
+
+body {
+  background-color: var(--color-sv-charcoal);
+  color: white;
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
