@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, Output, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Button } from '../../../components/button/button';
 
@@ -12,8 +12,13 @@ import { Button } from '../../../components/button/button';
       <div *ngIf="state() === 'decrypting'" class="flex flex-col items-center justify-center py-8">
          <div class="relative w-24 h-24 mb-6">
             <div class="absolute inset-0 border-4 border-slate-700 rounded-full"></div>
-            <div class="absolute inset-0 border-4 border-t-sv-cyan border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-            <div class="absolute inset-0 flex items-center justify-center font-mono text-sv-cyan font-bold">{{ progress() }}%</div>
+            <div class="absolute inset-0 border-4 rounded-full animate-spin"
+                 [ngClass]="mode === 'decrypt' ? 'border-t-sv-cyan border-r-transparent border-b-transparent border-l-transparent' : 'border-t-green-500 border-r-transparent border-b-transparent border-l-transparent'">
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center font-mono font-bold"
+                 [ngClass]="mode === 'decrypt' ? 'text-sv-cyan' : 'text-green-500'">
+                 {{ progress() }}%
+            </div>
          </div>
          
          <div class="w-full max-w-md bg-black/50 rounded p-2 font-mono text-xs text-green-500 h-32 overflow-hidden relative">
@@ -74,11 +79,15 @@ import { Button } from '../../../components/button/button';
   styles: []
 })
 export class DecryptionSimulationComponent implements OnInit {
+  @Input() mode: 'decrypt' | 'download' = 'decrypt';
+  @Output() close = new EventEmitter<void>();
+
   state = signal<'decrypting' | 'complete'>('decrypting');
   progress = signal(0);
   consoleLines: string[] = [];
   
-  private dictionary = ['BYPASSING_FIREWALL', 'INJECTING_PAYLOAD', 'DECRYPTING_AES_256', 'BRUTE_FORCING_HASH', 'ACCESS_GRANTED_NODE_7', 'OVERRIDING_SECURITY_PROTOCOL', 'QUANTUM_ENTANGLEMENT_SYNC', 'RESOLVING_DNS_PROXY'];
+  private decryptDictionary = ['BYPASSING_FIREWALL', 'INJECTING_PAYLOAD', 'DECRYPTING_AES_256', 'BRUTE_FORCING_HASH', 'ACCESS_GRANTED_NODE_7', 'OVERRIDING_SECURITY_PROTOCOL', 'QUANTUM_ENTANGLEMENT_SYNC', 'RESOLVING_DNS_PROXY'];
+  private downloadDictionary = ['INITIATING_HANDSHAKE', 'ALLOCATING_BUFFER', 'COMPRESSING_STREAM', 'VERIFYING_CHECKSUM', 'PACKET_LOSS_0%', 'OPTIMIZING_ROUTE', 'SECURE_TUNNEL_ESTABLISHED', 'FINALIZING_TRANSFER'];
 
   ngOnInit() {
     this.startSimulation();
@@ -86,12 +95,14 @@ export class DecryptionSimulationComponent implements OnInit {
 
   startSimulation() {
     let p = 0;
+    const dictionary = this.mode === 'decrypt' ? this.decryptDictionary : this.downloadDictionary;
+
     const interval = setInterval(() => {
       p += Math.floor(Math.random() * 5) + 1;
       if (p > 100) p = 100;
       this.progress.set(p);
       
-      this.consoleLines.unshift(`> ${this.dictionary[Math.floor(Math.random() * this.dictionary.length)]}...`);
+      this.consoleLines.unshift(`> ${dictionary[Math.floor(Math.random() * dictionary.length)]}...`);
       if (this.consoleLines.length > 8) this.consoleLines.pop();
 
       if (p === 100) {
@@ -102,6 +113,6 @@ export class DecryptionSimulationComponent implements OnInit {
   }
 
   reset() {
-      // Logic to close parent modal would be handled by parent
+      this.close.emit();
   }
 }
