@@ -37,10 +37,10 @@
   --font-size-technical: 14px;
 
   /* Line Heights */
-  --line-height-h1: 56px; /* Approx 1.16 */
-  --line-height-h2: 40px; /* Approx 1.25 */
-  --line-height-body: 28px; /* Approx 1.55 */
-  --line-height-technical: 20px; /* Approx 1.42 */
+  --line-height-h1: 56px; 
+  --line-height-h2: 40px; 
+  --line-height-body: 28px; 
+  --line-height-technical: 20px; 
 
   /* 03. SPACING GRID (4px Base) */
   --spacing-atomic: 4px;
