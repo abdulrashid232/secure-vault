@@ -117,21 +117,39 @@ export class VaultService {
   // State
   private readonly _fileSystem = signal<FileItem[]>(this.initializeData(MOCK_DATA));
   selectedItem = signal<FileItem | null>(null);
+  searchQuery = signal<string>('');
 
   // Flattened list of visible nodes for keyboard navigation
   flattenedVisibleNodes = computed(() => {
+    const query = this.searchQuery().toLowerCase();
     const visible: FileItem[] = [];
     const traverse = (items: FileItem[]) => {
       for (const item of items) {
-        visible.push(item);
-        if (item.type === 'folder' && item.isExpanded && item.children) {
-          traverse(item.children);
+        if (query) {
+           // Simple search: if matches query, add it. 
+           // For a real tree search we might want to show parents too, but this is a start.
+           if (item.name.toLowerCase().includes(query)) {
+             visible.push(item);
+           }
+           if (item.children) {
+             traverse(item.children); // Search recursively
+           }
+        } else {
+           // Normal tree behavior
+           visible.push(item);
+           if (item.type === 'folder' && item.isExpanded && item.children) {
+             traverse(item.children);
+           }
         }
       }
     };
     traverse(this._fileSystem());
     return visible;
   });
+
+  updateSearch(query: string) {
+    this.searchQuery.set(query);
+  }
 
   get fileSystem(): Signal<FileItem[]> {
     return this._fileSystem.asReadonly();
