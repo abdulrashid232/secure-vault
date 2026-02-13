@@ -13,6 +13,48 @@
   --font-mono: 'JetBrains Mono', 'monospace';
 }
 
+:root {
+  /* 02. COLOR PALETTE */
+  --color-deep-charcoal: #0B0E14;
+  --color-midnight-blue: #121926;
+  --color-electric-cyan: #00F0FF;
+  --color-electric-cyan-dim: rgba(0, 240, 255, 0.1);
+  --color-muted-gold: #C9A050;
+  --color-alert-red: #FF4B4B;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-tertiary: rgba(255, 255, 255, 0.5);
+
+  /* 01. TYPOGRAPHY SCALE */
+  --font-family-display: 'Orbitron', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+  --font-family-code: 'JetBrains Mono', monospace;
+
+  /* Font Sizes */
+  --font-size-h1: 48px;
+  --font-size-h2: 32px;
+  --font-size-body: 18px;
+  --font-size-technical: 14px;
+
+  /* Line Heights */
+  --line-height-h1: 56px; /* Approx 1.16 */
+  --line-height-h2: 40px; /* Approx 1.25 */
+  --line-height-body: 28px; /* Approx 1.55 */
+  --line-height-technical: 20px; /* Approx 1.42 */
+
+  /* 03. SPACING GRID (4px Base) */
+  --spacing-atomic: 4px;
+  --spacing-base: 8px;
+  --spacing-compact: 16px;
+  --spacing-default: 24px;
+  --spacing-relaxed: 32px;
+  
+  /* Component Specific */
+  --glass-background: rgba(18, 25, 38, 0.7);
+  --glass-border: 1px solid rgba(0, 240, 255, 0.1);
+  --glass-backdrop-filter: blur(10px);
+}
+
 body {
   background-color: var(--color-sv-charcoal);
   color: white;
