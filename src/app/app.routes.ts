@@ -10,4 +10,8 @@ export const routes: Routes = [
         path: 'design-system',
         loadComponent: () => import('./pages/design-system-demo/design-system-demo').then(m => m.DesignSystemDemoComponent)
     },
+    {
+        path: 'dashboard',
+        loadComponent: () => import('./dashboard/shell/shell').then(m => m.ShellComponent)
+    },
 ];
