@@ -1,0 +1,63 @@
+:host {
+  display: block;
+}
+
+.glass-panel {
+  background: var(--glass-background);
+  border: var(--glass-border);
+  backdrop-filter: var(--glass-backdrop-filter);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); 
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+    animation: scanline 4s linear infinite;
+  }
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(500px); } 
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-compact);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+  padding-bottom: var(--spacing-base);
+}
+
+.card-title {
+  font-family: var(--font-family-display);
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+  text-transform: capitalize; 
+}
+
+
+.icon-fingerprint {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.1); 
+  border-radius: 50%; 
+  display: inline-block;
+}
+
+.card-content {
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: 14px;
+}

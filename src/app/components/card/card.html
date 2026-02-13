@@ -1,0 +1,11 @@
+<div class="card glass-panel">
+  <div class="card-header" *ngIf="title">
+    <h3 class="card-title">{{ title }}</h3>
+    <div class="header-decoration">
+      <span class="icon-fingerprint"></span> <!-- Placeholder for icon -->
+    </div>
+  </div>
+  <div class="card-content">
+    <ng-content></ng-content>
+  </div>
+</div>
