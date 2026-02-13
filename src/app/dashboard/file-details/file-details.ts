@@ -8,7 +8,7 @@ import { Button } from '../../components/button/button';
   selector: 'app-file-details',
   imports: [CommonModule, Card, Button],
   template: `
-    <div class="h-full p-8 flex flex-col justify-center items-center text-center" *ngIf="!vaultService.selectedItem()">
+    <div class="h-full p-4 md:p-8 flex flex-col justify-center items-center text-center" *ngIf="!vaultService.selectedItem()">
       <div class="w-24 h-24 rounded-full bg-sv-midnight border border-sv-cyan-dim flex items-center justify-center mb-6 animate-pulse">
         <svg class="w-10 h-10 text-sv-cyan/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
       </div>
@@ -16,19 +16,19 @@ import { Button } from '../../components/button/button';
       <p class="text-slate-400 max-w-md">Select a file from the secure registry to decrypt metadata and view audit trails.</p>
     </div>
 
-    <div class="h-full p-8 overflow-y-auto" *ngIf="vaultService.selectedItem() as item">
-      <div class="flex items-start justify-between mb-8">
+    <div class="h-full p-4 md:p-8 overflow-y-auto" *ngIf="vaultService.selectedItem() as item">
+      <div class="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4">
         <div>
            <div class="flex items-center gap-3 mb-2">
               <span class="font-mono text-xs text-sv-gold border border-sv-gold/30 px-2 py-0.5 rounded bg-sv-gold/5">TOP SECRET</span>
               <span class="font-mono text-xs text-slate-500">/root/classified/{{ item.id }}</span>
            </div>
-           <h1 class="font-display text-4xl text-white break-all">{{ item.name }}</h1>
+           <h1 class="font-display text-3xl md:text-4xl text-white break-all">{{ item.name }}</h1>
         </div>
         
-        <div class="flex gap-3">
-            <app-button variant="secondary">Download</app-button>
-            <app-button variant="primary">Decrypt Access</app-button>
+        <div class="flex gap-3 flex-shrink-0">
+            <app-button variant="secondary" class="flex-1 md:flex-none">Download</app-button>
+            <app-button variant="primary" class="flex-1 md:flex-none">Decrypt Access</app-button>
         </div>
       </div>
 
