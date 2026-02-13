@@ -27,8 +27,8 @@ import { Button } from '../../components/button/button';
         </div>
         
         <div class="flex gap-3 flex-shrink-0">
-            <app-button variant="secondary" class="flex-1 md:flex-none">Download</app-button>
-            <app-button variant="primary" class="flex-1 md:flex-none">Decrypt Access</app-button>
+            <app-button variant="secondary" class="flex-1 md:flex-none" (click)="simulateDownload()">Download</app-button>
+            <app-button variant="primary" class="flex-1 md:flex-none" (click)="simulateDecrypt()">Decrypt Access</app-button>
         </div>
       </div>
 
@@ -83,18 +83,60 @@ import { Button } from '../../components/button/button';
         </div>
       </app-card>
       
-      <div class="h-64 bg-slate-900/50 rounded-lg border border-white/5 flex items-center justify-center relative overflow-hidden group">
-         <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-         <p class="font-display text-4xl text-slate-700 font-bold tracking-[0.2em] group-hover:text-slate-600 transition-colors cursor-default select-none">300x300</p>
-         <div class="absolute bottom-4 right-4 flex gap-2">
-            <span class="w-2 h-2 rounded-full bg-sv-cyan animate-pulse"></span>
-            <span class="text-[10px] font-mono text-slate-500 uppercase">Preview Restricted</span>
-         </div>
-      </div>
+      <app-card class="mb-8">
+        <h3 class="font-display text-lg text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-sv-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 7m0 13V7"></path></svg>
+            ACCESS DISTRIBUTION MAP
+            <div class="ml-auto flex gap-2 text-[10px] font-mono">
+                <span class="flex items-center gap-1 text-sv-cyan"><span class="w-1.5 h-1.5 rounded-full bg-sv-cyan"></span> Authorized</span>
+                <span class="flex items-center gap-1 text-sv-red"><span class="w-1.5 h-1.5 rounded-full bg-sv-red"></span> Threats</span>
+            </div>
+        </h3>
+        
+        <!-- Map Simulation -->
+        <div class="h-64 bg-slate-900/50 rounded-lg border border-white/5 relative overflow-hidden group">
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+            <!-- Grid Map -->
+            <div class="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-1 p-4 opacity-50">
+                <div *ngFor="let i of [].constructor(72); let idx = index" 
+                     class="rounded-sm transition-all duration-1000"
+                     [ngClass]="{
+                        'bg-sv-cyan/20 animate-pulse': idx % 7 === 0, 
+                        'bg-sv-red/20 animate-pulse': idx === 42,
+                        'bg-white/5': idx % 7 !== 0 && idx !== 42
+                     }"
+                     [style.animation-delay]="(idx * 50) + 'ms'"
+                ></div>
+            </div>
+            
+            <!-- Overlay Info -->
+            <div class="absolute bottom-4 right-4 flex flex-col items-end">
+               <span class="text-3xl font-display font-bold text-white tracking-widest">US-EAST-01</span>
+               <span class="text-[10px] font-mono text-slate-500 uppercase">Primary Data Center</span>
+            </div>
+             <div class="absolute top-4 left-4 p-2 bg-black/50 backdrop-blur-sm rounded border border-white/10">
+               <span class="text-[10px] font-mono text-sv-cyan block">LATENCY: 12ms</span>
+               <span class="text-[10px] font-mono text-green-400 block">UPTIME: 99.999%</span>
+            </div>
+        </div>
+      </app-card>
+      
     </div>
   `,
   styles: []
 })
 export class FileDetailsComponent {
   vaultService = inject(VaultService);
+  
+  simulateDownload() {
+      // Logic would go here (e.g. download service)
+      console.log('Downloading file...');
+      alert('Initiating Secure Download Protocol...');
+  }
+
+  simulateDecrypt() {
+      // Logic would go here
+       console.log('Decrypting access...');
+       alert('Requesting Decryption Keys from Admin-Alpha...');
+  }
 }
