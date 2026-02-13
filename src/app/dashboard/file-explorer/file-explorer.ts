@@ -5,7 +5,6 @@ import { VaultService } from '../services/vault';
 
 @Component({
   selector: 'app-file-explorer',
-  standalone: true,
   imports: [CommonModule, TreeNodeComponent],
   template: `
     <div class="h-full bg-sv-charcoal border-r border-white/5 flex flex-col">
@@ -63,7 +62,6 @@ export class FileExplorerComponent {
              if (current.type === 'folder') {
                 this.vaultService.toggleExpand(current);
              }
-             // For file, assume already selected
           }
           break;
       }
