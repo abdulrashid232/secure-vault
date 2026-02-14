@@ -10,9 +10,12 @@ import { DecryptionSimulationComponent } from './decryption-simulation/decryptio
   selector: 'app-file-details',
   imports: [CommonModule, Card, Button, ModalComponent, DecryptionSimulationComponent],
   template: `
-    <app-modal *ngIf="isDecryptModalOpen()" (close)="isDecryptModalOpen.set(false)">
-        <span header>DECRYPTION_PROTOCOL_V4</span>
-        <app-decryption-simulation></app-decryption-simulation>
+    <app-modal *ngIf="activeModal() !== 'none'" (close)="activeModal.set('none')">
+        <span header>{{ activeModal() === 'decrypt' ? 'DECRYPTION_PROTOCOL_V4' : 'SECURE_DOWNLOAD_LINK' }}</span>
+        <app-decryption-simulation 
+            [mode]="activeModal() === 'decrypt' ? 'decrypt' : 'download'" 
+            (close)="activeModal.set('none')">
+        </app-decryption-simulation>
     </app-modal>
 
     <div class="h-full p-4 md:p-8 flex flex-col justify-center items-center text-center" *ngIf="!vaultService.selectedItem()">
@@ -134,15 +137,13 @@ import { DecryptionSimulationComponent } from './decryption-simulation/decryptio
 })
 export class FileDetailsComponent {
   vaultService = inject(VaultService);
-  isDecryptModalOpen = signal(false);
+  activeModal = signal<'none' | 'decrypt' | 'download'>('none');
   
   simulateDownload() {
-      // Logic would go here (e.g. download service)
-      console.log('Downloading file...');
-      alert('Initiating Secure Download Protocol...');
+      this.activeModal.set('download');
   }
 
   simulateDecrypt() {
-       this.isDecryptModalOpen.set(true);
+       this.activeModal.set('decrypt');
   }
 }
